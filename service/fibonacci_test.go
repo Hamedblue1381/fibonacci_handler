@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -8,18 +9,19 @@ import (
 
 func TestFibonacciService_NextNumber(t *testing.T) {
 	fs := FibonacciService{}
+	fmt.Println(fs.NextNumber(int64(0)))
 
-	assert.Equal(t, 1, fs.NextNumber(0))
-	assert.Equal(t, 2, fs.NextNumber(1))
-	assert.Equal(t, 5, fs.NextNumber(3))
-	assert.Equal(t, 8, fs.NextNumber(5))
+	assert.Equal(t, int64(1), fs.NextNumber(int64(0)))
+	assert.Equal(t, int64(2), fs.NextNumber(int64(1)))
+	assert.Equal(t, int64(5), fs.NextNumber(int64(3)))
+	assert.Equal(t, int64(8), fs.NextNumber(int64(5)))
 }
 
 func TestFibonacciService_PrevNumber(t *testing.T) {
 	fs := FibonacciService{}
 
-	assert.Equal(t, 0, fs.PrevNumber(1))
-	assert.Equal(t, 1, fs.PrevNumber(2))
-	assert.Equal(t, 3, fs.PrevNumber(5))
-	assert.Equal(t, 5, fs.PrevNumber(8))
+	assert.Equal(t, int64(0), fs.PrevNumber(int64(1)))
+	assert.Equal(t, int64(1), fs.PrevNumber(int64(2)))
+	assert.Equal(t, int64(3), fs.PrevNumber(int64(5)))
+	assert.Equal(t, int64(5), fs.PrevNumber(int64(8)))
 }

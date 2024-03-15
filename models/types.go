@@ -1,9 +1,9 @@
 package models
 
 type FibonacciRequest struct {
-	Number int `json:"number"`
+	Number int64 `json:"number"`
 }
 
 type FibonacciResponse struct {
-	Result int `json:"result"`
+	Result int64 `json:"result"`
 }

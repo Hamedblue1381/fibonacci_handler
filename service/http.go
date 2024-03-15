@@ -7,6 +7,8 @@ import (
 	"github.com/vmihailenco/msgpack/v5"
 )
 
+// ParseRequest decodes the request body based on the Content-Type header.
+// It supports both JSON and MessagePack formats.
 func ParseRequest(r *http.Request, v interface{}) error {
 	if r.Header.Get("Content-Type") == "application/msgpack" {
 		return msgpack.NewDecoder(r.Body).Decode(v)
@@ -14,6 +16,8 @@ func ParseRequest(r *http.Request, v interface{}) error {
 	return json.NewDecoder(r.Body).Decode(v)
 }
 
+// EncodeResponse encodes the response body based on the Accept header.
+// It supports both JSON and MessagePack formats.
 func EncodeResponse(w http.ResponseWriter, r *http.Request, v interface{}) error {
 	if r.Header.Get("Accept") == "application/msgpack" {
 		w.Header().Set("Content-Type", "application/msgpack")
