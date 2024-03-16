@@ -3,6 +3,7 @@ package handler
 import (
 	"bytes"
 	"encoding/json"
+	"math/big"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -12,7 +13,7 @@ import (
 )
 
 func TestNextNumberHandler(t *testing.T) {
-	reqBody := models.FibonacciRequest{Number: 5}
+	reqBody := models.FibonacciRequest{Number: big.NewInt(5)}
 	reqBytes, _ := json.Marshal(reqBody)
 	req := httptest.NewRequest("POST", "/next", bytes.NewReader(reqBytes))
 	req.Header.Set("Content-Type", "application/json")
@@ -33,13 +34,13 @@ func TestNextNumberHandler(t *testing.T) {
 
 	var respBody models.FibonacciResponse
 	json.NewDecoder(resp.Body).Decode(&respBody)
-	if respBody.Result != 8 {
+	if respBody.Result.Cmp(big.NewInt(8)) != 0 {
 		t.Errorf("Expected result 8; Got %d", respBody.Result)
 	}
 }
 
 func TestPrevNumberHandler(t *testing.T) {
-	reqBody := models.FibonacciRequest{Number: 5}
+	reqBody := models.FibonacciRequest{Number: big.NewInt(5)}
 	reqBytes, _ := msgpack.Marshal(reqBody)
 	req := httptest.NewRequest("POST", "/prev", bytes.NewReader(reqBytes))
 	req.Header.Set("Content-Type", "application/msgpack")
@@ -60,7 +61,7 @@ func TestPrevNumberHandler(t *testing.T) {
 
 	var respBody models.FibonacciResponse
 	msgpack.NewDecoder(resp.Body).Decode(&respBody)
-	if respBody.Result != 3 {
+	if respBody.Result.Cmp(big.NewInt(3)) != 0 {
 		t.Errorf("Expected result 3; Got %d", respBody.Result)
 	}
 }

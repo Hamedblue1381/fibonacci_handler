@@ -1,9 +1,11 @@
 package models
 
+import "math/big"
+
 type FibonacciRequest struct {
-	Number int64 `json:"number"`
+	Number *big.Int `json:"number"`
 }
 
 type FibonacciResponse struct {
-	Result int64 `json:"result"`
+	Result *big.Int `json:"result"`
 }
