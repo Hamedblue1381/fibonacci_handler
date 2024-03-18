@@ -8,6 +8,7 @@ require (
 )
 
 require (
+	github.com/Hamedblue1381/bigfloat v0.0.0-20240318123629-23749afe3771 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect

@@ -1,3 +1,5 @@
+github.com/Hamedblue1381/bigfloat v0.0.0-20240318123629-23749afe3771 h1:yD97DAoi+Qyg+JshlHCV7c9bzd2FIyxasZbrHurnXsY=
+github.com/Hamedblue1381/bigfloat v0.0.0-20240318123629-23749afe3771/go.mod h1:AdSVsoeOLZlxlBA/plr3uiHmlZqkXwoNhYWY98gWC+A=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
